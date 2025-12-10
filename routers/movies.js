@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const moviesController = require("../controllers/moviesController")
+const moviesController = require("../controllers/moviesController");
 
 /* Index */
-router.get("/", moviesController.index)
+router.get("/", moviesController.index);
 
 /* Show */
 
@@ -13,4 +13,4 @@ router.get("/", moviesController.index)
 
 /* Destroy */
 
-module.exports = router
+module.exports = router;
