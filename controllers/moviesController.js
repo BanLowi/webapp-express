@@ -13,4 +13,23 @@ function index(req, res) {
     });
 }
 
-module.exports = { index };
+function show(req, res) {
+    const id = req.params.id;
+
+    const sql = "SELECT * FROM movies WHERE id = ?";
+
+    connection.query(sql, [id], (err, result) => {
+        if (err) {
+            /* console.log(err); */
+            return res.status(500).json({ error: true, message: "Database query fail" })
+        };
+        if (result.length === 0) {
+            /* console.log(err); */
+            return res.status(404).json({ error: true, message: "Movies not Found" })
+
+        }
+        res.json(result);
+    });
+}
+
+module.exports = { index, show };

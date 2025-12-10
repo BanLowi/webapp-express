@@ -6,7 +6,7 @@ const moviesController = require("../controllers/moviesController");
 router.get("/", moviesController.index);
 
 /* Show */
-
+router.get("/:id", moviesController.show);
 /* Store */
 
 /* Update */
