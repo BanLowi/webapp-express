@@ -4,6 +4,8 @@ const PORT = 3000;
 const cors = require("cors");
 const moviesRouter = require("./routers/movies");
 
+app.use(express.static("public"));
+
 app.use(express.json());
 
 app.use(cors({
@@ -11,7 +13,7 @@ app.use(cors({
 }));
 
 app.listen(PORT, () => {
-    console.log(`Listening to port: ${PORT}`);
-})
+    console.log(`Listening to port: ${PORT}`)
+});
 
 app.use("/movies", moviesRouter);
